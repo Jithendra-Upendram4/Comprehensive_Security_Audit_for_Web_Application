@@ -76,6 +76,3 @@ Suspicious log entries detected:
 ## Contribution
 Contributions are welcome! Feel free to submit pull requests or report issues.
 
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
-

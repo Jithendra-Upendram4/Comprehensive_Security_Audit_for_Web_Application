@@ -12,22 +12,23 @@ This project is a comprehensive **Cybersecurity Automation Toolkit** designed to
 - ✅ Latest Vulnerability Updates from NVD API.
 - ✅ Comprehensive Security Report Generation.
 
-## Prerequisites
-Ensure the following tools are installed:
-- Python 3.8+
-- OWASP ZAP (localhost:8081)
-- SQLMap
-- Burp Suite (localhost:8082)
-- Metasploit Framework
-- Wireshark (Tshark)
+## How It Works
+### Step 1: Set Up Localhost with XAMPP
+1. Download and install **XAMPP** from [Apache Friends](https://www.apachefriends.org/index.html).
+2. Start **Apache** and **MySQL** from the XAMPP Control Panel.
+3. Place your test web application in the `htdocs` folder (e.g., `C:\xampp\htdocs\myapp`).
+4. Access the application using `http://localhost/myapp`.
 
-Install necessary Python packages using:
-```bash
-pip install aiohttp aiofiles python-owasp-zap-v2
-```
+### Step 2: Install Required Tools
+Ensure the following tools are installed and running:
+- **OWASP ZAP** on `localhost:8081`
+- **Burp Suite** on `localhost:8082`
+- **Metasploit**
+- **Wireshark (Tshark)**
+- **SQLMap**
 
-## Configuration
-Edit the configuration variables in the script:
+### Step 3: Configure the Project
+Edit the configuration variables in the script as per your setup:
 ```python
 TARGET_URL = "http://localhost:80"
 ZAP_API_KEY = "your_zap_api_key"
@@ -38,22 +39,24 @@ BURP_API_URL = "http://localhost:8082/v0.1"
 BURP_API_KEY = "your_burp_api_key"
 ```
 
-## Usage
-Run the script with:
+### Step 4: Run the Security Assessment
+Run the script using the following command:
 ```bash
 python main.py
 ```
-The script will perform the following:
-1. Fetch latest vulnerabilities from NVD API.
-2. Perform OWASP ZAP spider and active scans.
-3. Execute a Burp Suite active scan.
-4. Test for SQL injection using SQLMap.
-5. Perform exploitation with Metasploit.
-6. Analyze MySQL and system logs for suspicious activities.
-7. Capture network traffic using Tshark.
-8. Generate a detailed security report.
+The following steps will be performed automatically:
 
-## Example Report Output
+1. **Fetch Latest Vulnerabilities**: The script uses the **NVD API** to get the latest known vulnerabilities.
+2. **OWASP ZAP Spider and Active Scan**: Scans the application to find vulnerabilities.
+3. **SQLMap Testing**: SQL injection testing is performed using **SQLMap**.
+4. **Burp Suite Scan**: A Burp Suite active scan is initiated.
+5. **Metasploit Exploitation**: Attempts to exploit vulnerabilities using **Metasploit**.
+6. **Log Analysis**: The script scans MySQL logs and system logs to identify anomalies.
+7. **Network Capture**: **Tshark** captures up to 1000 packets for analysis.
+8. **Generate Report**: A detailed security report is generated.
+
+### Step 5: Review the Report
+The final report will be saved in the project directory as `security_report_<timestamp>.txt`. Example output:
 ```
 ==== Security Assessment Report ====
 Date: 2025-03-29 14:30:45
@@ -75,4 +78,7 @@ Suspicious log entries detected:
 
 ## Contribution
 Contributions are welcome! Feel free to submit pull requests or report issues.
+
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
 
